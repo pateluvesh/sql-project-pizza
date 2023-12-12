@@ -58,3 +58,23 @@ select* from pizzasales;
     from pizzasales
     Group by pizza_name
     Order by Revenue,Total_Quantity,Total_Orders limit 5;
+    
+    
+    
+    
+    
+    
+    -- 1. Total Revenue: The sum of the total price of all pizza orders.
+	Select Round(Sum(Total_price),2) as "Total Revenue" from pizzasales;
+
+-- 2. Average Order Value: The average amount spent per order.
+	Select Round(sum(total_price)/Count(distinct(order_id)),2) as "Average Order Value" from pizzasales; 
+    
+-- 3. Total Pizzas Sold: The sum of the quantities of all pizza sold.
+	Select Sum(quantity) as "Total Pizzas Sold" from pizzasales;
+
+-- 4. Total Orders: The total number of orders placed.
+	Select Count(distinct(order_id)) as "Total Orders" from pizzasales;
+    
+-- 5. Average Pizza Per Order: The average number of pizzas sold per order.
+	Select Round(sum(quantity)/Count(distinct(order_id))) as "Average Pizza Per Order" from pizzasales;
